@@ -14,6 +14,10 @@ async function createProduct (product){
     return await facturapi.products.create(facturapiProduct);
 }
 
+async function updateProduct(id, updates) {
+    return await facturapi.products.update(id, updates);
+}
+
 async function deleteProduct (id){
     return await facturapi.products.del(id)
 }
@@ -25,9 +29,14 @@ async function createUser (user){
         tax_id: 'ABC101010111',
         tax_system: '601',
         email: user.email,
-        address: user.address
+        address: user.address,
+        phone: user.phone
     };
     return await facturapi.customers.create(facturapiCustomer)
+}
+
+async function updateUser(id, updates) {
+    return await facturapi.customers.update(id, updates);
 }
 
 async function deleteUser (id){
@@ -36,7 +45,9 @@ async function deleteUser (id){
 
 module.exports = { 
     createProduct,
+    updateProduct,
     deleteProduct,
     createUser,
+    updateUser,
     deleteUser
 };

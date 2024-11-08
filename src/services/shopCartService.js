@@ -10,6 +10,8 @@
       return await product.save();
     },
     updateProduct: async ({ _id, ...rest }) => {
+      const product = await Product.findById(_id);
+      await facturapi.updateProduct(product.facturapiid, rest);
       return await Product.findByIdAndUpdate(_id, rest, { new: true });
     },
     deleteProduct: async (_id) => {
@@ -28,6 +30,8 @@
       return await user.save();
     },
     updateUser: async ({_id, ...rest}) => {
+      const user = await User.findById(_id);
+      await facturapi.updateUser(user.facturapiid, rest);
       return await User.findByIdAndUpdate(_id, rest, {new: true});
     },
     deleteUser: async (_id) => {
