@@ -1,12 +1,12 @@
 // src/index.js
 const { ApolloServer } = require('apollo-server');
 const mongoose = require('mongoose');
-const typeDefs = require('./schemas/productSchema');
-const resolvers = require('./resolvers/productResolver');
+const typeDefs = require('./schemas/shopCartSchema');
+const resolvers = require('./resolvers/shopCartResolver');
 
 const startServer = async () => {
   // Conectar a MongoDB
-  await mongoose.connect('mongodb+srv://iarjona:Isarca2010X@clusterisarvi.7txs2.mongodb.net/?retryWrites=true&w=majority&appName=ClusterIsarvi');
+  await mongoose.connect('mongodb+srv://CrissCross20:CMS192001@cluster0.rvuph.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
   
   const server = new ApolloServer({ typeDefs, resolvers });
   
