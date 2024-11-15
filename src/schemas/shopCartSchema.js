@@ -40,11 +40,25 @@ const shopCartTypeDefs = gql`
   }
 
   type Mutation {
-    createCart(user: UserInCartInput!, product: [ProductInCartInput]!): ShopCart
-    addProductToCart(cartId: ID!, product: ProductInCartInput!): ShopCart
-    removeProductFromCart(cartId: ID!, productId: ID!): ShopCart
-    updateCart(cartId: ID!, updates: ShopCartUpdateInput!): ShopCart
-    closeCart(cartId: ID!): ShopCart
+    createCart(
+      user: UserInCartInput!, 
+      product: [ProductInCartInput]!
+    ): ShopCart
+
+    addProductToCart(
+      cartId: ID!, 
+      product: ProductInCartInput!
+    ): ShopCart
+    
+    removeProductFromCart(
+      cartId: ID!, 
+      productId: ID!
+    ): ShopCart
+    
+    closeCart(
+      cartId: ID!
+    ): ShopCart
+
   }
 
   input ProductInCartInput {
@@ -65,12 +79,6 @@ const shopCartTypeDefs = gql`
     fullName: String!
     email: String!
     password: String!
-  }
-
-  input ShopCartUpdateInput {
-    subtotal: Float
-    IVA: Float
-    total: Float
   }
 `;
 

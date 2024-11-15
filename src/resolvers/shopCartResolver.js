@@ -10,7 +10,6 @@ const shopCartResolvers = {
     createCart: (_, { user, product }) => shopCartService.createCart({ user, product }),
     addProductToCart: (_, { cartId, product }) => shopCartService.addProductToCart(cartId, product),
     removeProductFromCart: (_, { cartId, productId }) => shopCartService.removeProductFromCart(cartId, productId),
-    updateCart: (_, { cartId, updates }) => shopCartService.updateCart(cartId, updates),
     closeCart: (_, { cartId }) => shopCartService.closeCart(cartId)
   }
 };

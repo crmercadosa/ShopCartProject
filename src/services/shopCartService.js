@@ -56,14 +56,6 @@ const shopCartService = {
     }
     throw new Error('Cannot remove product from an inactive cart');
   },
-  updateCart: async (cartId, updates) => {
-    const cart = await ShopCart.findById(cartId);
-    if (cart && cart.status === 'ACTIVE') {
-      Object.assign(cart, updates);
-      return await cart.save();
-    }
-    throw new Error('Cannot update an inactive cart');
-  },
   closeCart: async (cartId) => {
     const cart = await ShopCart.findById(cartId);
     if (cart) {
